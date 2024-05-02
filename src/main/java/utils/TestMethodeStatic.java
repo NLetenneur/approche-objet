@@ -1,4 +1,4 @@
-package entites;
+package utils;
 
 public class TestMethodeStatic {
 
