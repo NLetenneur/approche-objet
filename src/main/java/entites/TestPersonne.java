@@ -5,23 +5,13 @@ import entites2.Personne;
 public class TestPersonne {
 
 	public static void main(String[] args) {
-		Personne moi = new Personne();
-		moi.nom="Letenneur";
-		moi.prénom="Noémie";
-		moi.adresse=new AdressePostale();
-		moi.adresse.numeroRue=1;
-		moi.adresse.libelleRue="rue de Morlaix";
-		moi.adresse.codePostal=44800;
-		moi.adresse.ville="Saint Herblain";
+		Personne moi = new Personne("Letenneur", "Noémie");
+		moi.adresse = new AdressePostale(1, "rue de Morlaix", 44800,"Saint Herblain");
+
+		Personne autre = new Personne("Doe", "Jane", new AdressePostale(5, "rue des Maréchaux", 44100, "Nantes"));
 		
-		Personne autre = new Personne();
-		autre.nom="Doe";
-		autre.prénom="Jane";
-		autre.adresse = new AdressePostale();
-		autre.adresse.numeroRue=5;
-		autre.adresse.libelleRue="rue des Maréchaux";
-		autre.adresse.codePostal=44100;
-		autre.adresse.ville="Nantes";
+		System.out.println(moi);
+		System.out.println(autre);
 	}
 
 }
