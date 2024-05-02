@@ -10,8 +10,21 @@ public class TestPersonne {
 
 		Personne autre = new Personne("Doe", "Jane", new AdressePostale(5, "rue des Maréchaux", 44100, "Nantes"));
 		
-		System.out.println(moi);
-		System.out.println(autre);
+		moi.afficherIdentite();
+		autre.modifierNom("Martin");
+		autre.afficherIdentite();
+		autre.modifierPrenom("Martine");
+		autre.afficherIdentite();
+		
+		AdressePostale adresseBidon = new AdressePostale(96, "rue Pablo Picasso", 45000, "Orléans");
+		
+		autre.modifierAdresse(adresseBidon);
+		
+		Personne encoreAutre = new Personne("Baldwin", "James");
+		
+		encoreAutre.modifierAdresse(adresseBidon);
+		encoreAutre.afficherIdentite();
+		
 	}
 
 }
