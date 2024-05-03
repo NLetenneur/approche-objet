@@ -16,7 +16,7 @@ public class TestOperation {
 		Operation[] tabOpe = {cred1, cred2, deb1, deb2};
 		
 		for (int i=0; i<tabOpe.length; i++) {
-			if (tabOpe[i].getType()=="DEBIT") {
+			if (tabOpe[i].getType().equals("DEBIT")) {
 				solde = solde-tabOpe[i].getMontantOpe();
 			}else {
 				solde = solde+tabOpe[i].getMontantOpe();
