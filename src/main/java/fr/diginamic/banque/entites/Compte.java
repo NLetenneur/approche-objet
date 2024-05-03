@@ -10,5 +10,17 @@ public class Compte {
 		this.soldeCompte = soldeCompte;
 	}
 	
+	public int getNumero(){
+		return numeroCompte;
+	}
+	
+	public double getSolde() {
+		return soldeCompte;
+	}
+	
+	public void setSolde(double newSolde) {
+		soldeCompte= newSolde;
+	}
+	
 	
 }
