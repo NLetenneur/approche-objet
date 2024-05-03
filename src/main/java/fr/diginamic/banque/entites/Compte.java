@@ -22,5 +22,9 @@ public class Compte {
 		soldeCompte= newSolde;
 	}
 	
+	public String toString() {
+		return "numéro de compte : "+numeroCompte+", solde du compte : "+soldeCompte+".";
+	}
+	
 	
 }
