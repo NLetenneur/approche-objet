@@ -9,6 +9,10 @@ public class Pigiste extends Intervenant {
 		this.nbJoursTravMois = nbJoursTravMois;
 		this.salJournalier = salJournalier;
 	}
+	@Override
+	public String getStatus() {
+		return "Pigiste";
+	}
 
 	@Override
 	public double getSalaire() {

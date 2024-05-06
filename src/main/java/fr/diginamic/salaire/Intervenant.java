@@ -11,5 +11,10 @@ public abstract class Intervenant {
 	}
 
 	public abstract double getSalaire();
+	public abstract String getStatus();
+	public String afficherDonnees() {
+		return "Nom : "+nom+", Prénom : "+prenom+", salaire : "+this.getSalaire()+", statut : "+this.getStatus();
+	}
+	
 
 }

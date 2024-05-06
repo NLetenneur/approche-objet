@@ -10,6 +10,9 @@ public class TestIntervenant {
 		System.out.println(londonJack.getSalaire());
 		Pigiste arendtHannah = new Pigiste("Arendt", "Hannah", 10.4, 748.56);
 		System.out.println(arendtHannah.getSalaire());
+		
+		System.out.println(londonJack.afficherDonnees());
+		System.out.println(arendtHannah.afficherDonnees());
 	}
 
 }
