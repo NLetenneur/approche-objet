@@ -13,12 +13,10 @@ public class TestListeString {
 		
 		//Recherche de la ville qui a le plus grand nombre de lettres
 		String longueVille ="";
-		int longueur = 0;
 		for (int i =0; i<villes.size(); i++) {
 			String villeCourante = villes.get(i);
-			if (villeCourante.length()>longueur) {
+			if (villeCourante.length()>longueVille.length()) {
 				longueVille = villeCourante;
-				longueur = villeCourante.length();				
 			}
 		}
 		System.out.println(longueVille);
