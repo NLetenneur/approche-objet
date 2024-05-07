@@ -42,6 +42,8 @@ public class TestListeInt {
 		listeEntiers.remove(nbMinPos);
 		System.out.println(listeEntiers);
 		System.out.println(nbMin);
+		
+		
 
 	}
 
