@@ -17,6 +17,7 @@ public class LectureFichier {
 		Path recensement = Paths.get(
 				"C:\\Users\\nlete\\git\\approche-objet\\src\\main\\java\\fr\\diginamic\\fichiers\\recensement.csv");
 		boolean exists = Files.exists(recensement);
+		List<String> linesSup25k = new ArrayList<>();
 		if (exists) {
 			List<String> lines = Files.readAllLines(recensement, StandardCharsets.UTF_8);
 			System.out.println(lines);
@@ -33,10 +34,16 @@ public class LectureFichier {
 				}
 			}
 			Collections.sort(listeVilles);
+			linesSup25k.add("Nom de la commune;Code département;Nom de la région;Population totale");
 			for (Ville ville: listeVilles) {
-				System.out.println(ville);
+				if (ville.popTotale >= 25000) {
+					linesSup25k.add(ville.nom + ";" + ville.codeDep + ";" +ville.nomRegion + ";" + ville.popTotale);
+				}
 				}
 		}
+		Path pathCible = Paths.get(
+				"C:\\Users\\nlete\\git\\approche-objet\\src\\main\\java\\fr\\diginamic\\fichiers\\recensementSup25k.csv");
+		Files.write(pathCible, linesSup25k);
 
 	}
 

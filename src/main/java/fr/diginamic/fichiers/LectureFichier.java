@@ -14,7 +14,6 @@ public class LectureFichier {
 
 	public static void main(String[] args) throws IOException {
 		ArrayList<Ville> listeVilles = new ArrayList<Ville>();
-
 		Path recensement = Paths.get(
 				"C:\\Users\\nlete\\git\\approche-objet\\src\\main\\java\\fr\\diginamic\\fichiers\\recensement.csv");
 		boolean exists = Files.exists(recensement);
