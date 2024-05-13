@@ -13,7 +13,7 @@ import java.util.List;
 public class LectureFichier {
 
 	public static void main(String[] args) throws IOException {
-		ArrayList<Ville> listeVilles = new ArrayList<Ville>();
+		List<Ville> listeVilles = new ArrayList<Ville>();
 		Path recensement = Paths.get(
 				"C:\\Users\\nlete\\git\\approche-objet\\src\\main\\java\\fr\\diginamic\\fichiers\\recensement.csv");
 		boolean exists = Files.exists(recensement);
@@ -40,11 +40,21 @@ public class LectureFichier {
 					linesSup25k.add(ville.nom + ";" + ville.codeDep + ";" +ville.nomRegion + ";" + ville.popTotale);
 				}
 				}
+			Collections.sort(listeVilles, new ComparatorHabitant());
+			for (Ville ville: listeVilles) {
+				System.out.println(ville);
+				}
+			Collections.sort(listeVilles, new ComparatorNom());
+			for (Ville ville: listeVilles) {
+				System.out.println(ville);
+				}
+
 		}
 		Path pathCible = Paths.get(
 				"C:\\Users\\nlete\\git\\approche-objet\\src\\main\\java\\fr\\diginamic\\fichiers\\recensementSup25k.csv");
 		Files.write(pathCible, linesSup25k);
-
+		
+		
 	}
 
 }
