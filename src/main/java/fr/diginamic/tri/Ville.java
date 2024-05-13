@@ -48,7 +48,14 @@ public class Ville implements Comparable<Ville> {
 	}
 
 	public int compareTo(Ville ville2) {
-		int result = this.nom.compareTo(ville2.getNom());
+		int result = 0; //this.nom.compareTo(ville2.getNom());
+		if (this.popTotale > ville2.getPopTotale()) {
+			result = 1;
+		} else if (this.popTotale < ville2.getPopTotale()) {
+			result = -1;
+		} else {
+			result = 0;
+		}
 		return result;
 		}
 	
