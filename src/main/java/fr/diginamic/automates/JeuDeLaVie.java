@@ -44,7 +44,7 @@ public class JeuDeLaVie {
 		Cell neighbour4 = new Cell(20, 20, false);
 		Cell neighbour5 = new Cell(20, 20, false);
 		Cell neighbour6 = new Cell(20, 20, false);
-		Cell neighbour7 = new Cell(20,20, false);
+		Cell neighbour7 = new Cell(20, 20, false);
 		Cell neighbour8 = new Cell(20, 20, false);
 		if (cell.y > 'A') {
 			while (valuesIte.hasNext() && keysIte.hasNext()) {
@@ -94,7 +94,7 @@ public class JeuDeLaVie {
 	public static boolean GiveCellNewStatus(Cell cell, List<Cell> cluster) {
 		boolean isAlive = cell.isAlive;
 		int cellsAlive = 0;
-		for (int i=0; i<cluster.size(); i++) {
+		for (int i = 0; i < cluster.size(); i++) {
 			Cell curCell = cluster.get(i);
 			if (curCell.isAlive) {
 				cellsAlive++;
@@ -116,9 +116,9 @@ public class JeuDeLaVie {
 		Iterator<Integer> keysIte = oldBoard.keySet().iterator();
 		while (keysIte.hasNext()) {
 			int key = keysIte.next();
-			Cell currentCell = new Cell(oldBoard.get(key).y,oldBoard.get(key).x,oldBoard.get(key).isAlive );
+			Cell currentCell = new Cell(oldBoard.get(key).y, oldBoard.get(key).x, oldBoard.get(key).isAlive);
 			List<Cell> currentCluster = FindCluster(currentCell, oldBoard);
-			currentCell.isAlive=GiveCellNewStatus(currentCell,currentCluster);
+			currentCell.isAlive = GiveCellNewStatus(currentCell, currentCluster);
 			newBoard.put(key, currentCell);
 		}
 		return newBoard;
@@ -126,6 +126,20 @@ public class JeuDeLaVie {
 	}
 
 	public static void main(String[] args) {
+		HashMap<Integer, Cell> board = GenererPlateauAleatoire19x19();
+		AfficherPlateau(board);
+		int nbCelVivantes = CompterCelVivantes(board);
+		while (nbCelVivantes > 0) {
+			System.out.println("");
+			board = NouvelleGeneration(board);
+			AfficherPlateau(board);
+			nbCelVivantes = CompterCelVivantes(board);
+		}
+		;
+
+	}
+
+	private static HashMap<Integer, Cell> GenererPlateauAleatoire19x19() {
 		// Créer un plateau de jeu de manière aléatoire
 		HashMap<Integer, Cell> board = new HashMap<>();
 		int key = 0;
@@ -140,23 +154,15 @@ public class JeuDeLaVie {
 				board.put(key, new Cell(i, j, etat));
 			}
 		}
-		AfficherPlateau(board);
-		int nbCelVivantes = CompterCelVivantes(board);
-		while(nbCelVivantes>0){
-			System.out.println("");
-			board=NouvelleGeneration(board);
-			AfficherPlateau(board);
-			nbCelVivantes = CompterCelVivantes(board);
-		};
-		
+		return board;
 	}
 
 	private static int CompterCelVivantes(HashMap<Integer, Cell> board) {
-		int celVivantes=0;
+		int celVivantes = 0;
 		Iterator<Integer> keysIte = board.keySet().iterator();
 		while (keysIte.hasNext()) {
 			int key = keysIte.next();
-			if(board.get(key).isAlive) {
+			if (board.get(key).isAlive) {
 				celVivantes++;
 			}
 		}
